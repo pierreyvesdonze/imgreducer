@@ -23,16 +23,14 @@ class ImageManager
         $this->imagine = new Imagine();
     }
 
-    public function upload(UploadedFile $file, $type)
+    public function upload(UploadedFile $file)
     {
 
         // Répertoire de destination des images
         $imageDirectory = null;
 
-        if ($type === 'image') {
-            $fileName = 'assets/images/' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $imageDirectory = $this->getImageDirectory();
-        }
+        $fileName = 'assets/images/' . uniqid() . '.' . $file->getClientOriginalExtension();
+        $imageDirectory = $this->getImageDirectory();
 
         try {
             $file->move($imageDirectory, $fileName);
