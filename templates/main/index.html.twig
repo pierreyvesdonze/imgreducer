@@ -15,18 +15,28 @@
         {{ form_widget(form.image) }}
     </div>
     <div>
-        {{ form_label(form.width) }}
+        {{ form_label(form.width) }} <span class="info">ⓘ</span>
         <br>
         <br>
         <p>
             La largeur doit être exprimée en pixels, de minimum <span>24px</span> et de maximum <span>1920px</span>.
         </p>
-        <br>
     </div>
     {{ form_widget(form.width) }}
     <div class="center">
         {{ form_widget(form.save) }}
         {{ form_end(form) }}
+    </div>
+
+    {# MODALS #}
+    <div class="modal modal-info">
+        <p>
+            Veillez à rentrer une largeur inférieure à celle d'origine, au risque de perdre en qualité
+            <br />
+            <br />
+            <span class="close-btn">Ok merci</span>
+        </p>
+        <br />
     </div>
 </div>
 

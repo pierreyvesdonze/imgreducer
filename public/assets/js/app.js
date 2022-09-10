@@ -8,6 +8,8 @@ var app = {
         * *****************************
         */
         $('.dl-btn').on('click', app.clearFolder);
+        $('.info').on('click', app.showInfo);
+        $('.close-btn').on('click', app.closeModal);
     },
 
     clearFolder: (e) => {
@@ -37,6 +39,16 @@ var app = {
     reload: () => {
         location.reload()
     },
+
+    showInfo: () => {
+        $('.modal-info').addClass('visible').removeClass('hidden');
+        $('.container-center').addClass('hidden').removeClass('visible');
+    },
+    
+    closeModal: () => {
+        $('.modal').addClass('hidden').removeClass('visible');
+        $('.container-center').addClass('visible').removeClass('hidden');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', app.init)

@@ -16,7 +16,7 @@ class ImageUploadType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('image', FileType::class, [
-            'label'    => 'Ajouter une image',
+            'label'    => 'Charger une image',
             'multiple' => false,
             'mapped'   => false,
             'required' => true,
@@ -36,7 +36,7 @@ class ImageUploadType extends AbstractType
 
         $builder->add('width', IntegerType::class, [
             'required' => true,
-            'label'    => "Entrez la largeur souhaitée",
+            'label'    => "Entrer la largeur désirée",
             'attr' => [
                 'min' => 24,
                 'max' => 1920

@@ -101,3 +101,54 @@ MAIN
         transition: ease 0.2s;
     }
 }
+
+.info {
+    color: var(--secondary-color);
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#image_upload_width {
+    border-radius: 20px;
+    outline: none;
+    border: 1px var(--secondary-color) solid;
+    background: transparent !important;
+    color: var(--text-color);
+    padding: .5em;
+}
+
+/*
+ ***************************
+MODALS
+ ***************************
+ */
+.modal-info {
+    visibility: hidden;
+    position: absolute;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    background: #111;
+    padding: 0 2em;
+    border-radius: 120px;
+    p {
+        line-height: 2em;
+        padding: 1.7em;
+    }
+}
+
+.info {
+    margin-left: .5em;
+}
+
+.visible {
+    visibility: visible;
+}
+.hidden {
+    visibility: hidden;
+}
+
+.close-btn {
+    color: var(--secondary-color);
+    cursor: pointer;
+}
