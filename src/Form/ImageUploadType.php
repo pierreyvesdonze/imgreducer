@@ -5,6 +5,8 @@ namespace App\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
@@ -32,18 +34,13 @@ class ImageUploadType extends AbstractType
             ],
         ]);
 
-        $builder->add('width', ChoiceType::class, [
+        $builder->add('width', IntegerType::class, [
             'required' => true,
             'label'    => "Choisissez la largeur de l'image souhaitée",
-            'choices' => [
-                '1920p' => '1920',
-                '1280p' => '1280',
-                '1024p' => '1024',
-                '800p'  => '800',
-                '768p'  => '768',
-                '720p'  => '720',
-                '640p'  => '640',
-                '320p'  => '320'
+            'empty_data' => '320',
+            'attr' => [
+                'min' => 320,
+                'max' => 1920
             ]
             ]);
 
