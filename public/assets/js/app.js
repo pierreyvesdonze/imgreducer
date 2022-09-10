@@ -11,6 +11,7 @@ var app = {
     },
 
     clearFolder: (e) => {
+        $('.dl-btn').css('display', 'none');
         setTimeout(() => {
             $.ajax(
                 {
@@ -19,6 +20,8 @@ var app = {
                 }).done(function (response) {
                     e.preventDefault();
                     if (null !== response) {
+
+                        // Handle redownload file
                         app.reload();
                     } else {
                         console.log('error');

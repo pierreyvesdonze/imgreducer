@@ -7,25 +7,27 @@
 <h1>Redimensionner une image</h1>
 
 <div class="container-center">
-    
+    <div>
     {{ form_start(form) }}
-    {{ form_label(form.image) }}
-    <br >
-    <br >
-    {{ form_widget(form.image) }}
-    <br >
-    <br >
-    <br >
-    <br >
-    {{ form_label(form.width) }}
-    <br >
-    <br >
+        {{ form_label(form.image) }}
+        <br />
+        <br />
+        {{ form_widget(form.image) }}
+    </div>
+    <div>
+        {{ form_label(form.width) }}
+        <br>
+        <br>
+        <p>
+            La largeur doit être exprimée en pixels, de minimum <span>24px</span> et de maximum <span>1920px</span>.
+        </p>
+        <br>
+    </div>
     {{ form_widget(form.width) }}
-    <br >
-    <br >
-    <br >
-    {{ form_widget(form.save) }}
-    {{ form_end(form) }}
+    <div class="center">
+        {{ form_widget(form.save) }}
+        {{ form_end(form) }}
+    </div>
 </div>
-    
+
 {% endblock %}

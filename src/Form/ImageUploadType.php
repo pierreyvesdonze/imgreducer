@@ -36,10 +36,9 @@ class ImageUploadType extends AbstractType
 
         $builder->add('width', IntegerType::class, [
             'required' => true,
-            'label'    => "Choisissez la largeur de l'image souhaitée",
-            'empty_data' => '320',
+            'label'    => "Entrez la largeur souhaitée",
             'attr' => [
-                'min' => 320,
+                'min' => 24,
                 'max' => 1920
             ]
             ]);

@@ -3,10 +3,10 @@
 :root {
     //var(--body-bg): url("../images/texture.webp") no-repeat fixed;
     //var(--body-bg)-small: url("../images/texture-small.webp") no-repeat fixed;
-    --body-bg: #111;
+    --body-bg: radial-gradient(circle, rgba(27,27,27,1) 0%, rgba(8,8,8,1) 100%);
     --text-color: white;
     --primary-color: #b1af3cd3;
-    --secondary-color: #efeeb4;
+    --secondary-color: rgb(255, 136, 0);
     --navlink-color: #ffd800;
 }
 
@@ -20,13 +20,8 @@ body {
     background: var(--body-bg);
 }
 
-* {
-    font-family: "Montserrat", sans-serif;
-}
-
 p,
 a,
-span,
 h1,
 h2,
 h3,
@@ -34,7 +29,7 @@ h4,
 h5,
 h6,
 label,
-input,
+input[type=file] 
 .required,
 .input-textarea,
 .span-italic,
@@ -44,19 +39,33 @@ table,
 select,
 ul li,
 .alert {
-    color: var(--text-color) !important;
+    color: var(--text-color);
     text-shadow: 1px 1px 1px rgb(7, 7, 7);
+    letter-spacing: .2em;
 }
 
-select option {
-    color: black;
-    font-weight: bold;
-    font-size: 1.2em;
+input[type=number] {
+    font-size: 1.6em;
+}
+
+.add-img {
+    color: var(--secondary-color);
 }
 
 h1 {
     text-align: center;
-    margin-top: 2em;
+    margin: 2 0;
+    padding-bottom: 2em;
+    font-weight: 100;
+}
+
+label {
+    font-size: 1.4em;
+}
+
+span {
+    color: var(--secondary-color);
+    font-size: 1.4em;
 }
 
 /*
@@ -69,21 +78,26 @@ MAIN
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 42em;
+    text-align: center;
+    height: 38em;
+    border-left: 1px var(--secondary-color) solid;
+    border-right: 1px var(--secondary-color) solid;
+    border-radius: 124px;
+    div {
+        margin: 2em;
+    }
 }
 
 .custom-btn {
     background: transparent;
-    border: solid rgb(255, 136, 0) 1px;
+    border: solid var(--secondary-color) 1px;
     border-radius: 10px;
-    color: rgb(255, 136, 0);
+    color: var(--secondary-color);
     padding: 0.6em;
+    transition: ease 0.2s;
+    margin-top: 4em;
     &:hover {
-        box-shadow: 0px 0px 3px 2px rgb(255, 136, 0);
-        transition: ease 0.1s;
-    }
-    &:active {
-        color: rgb(255, 191, 72);
-        box-shadow: 0px 0px 3px 2px rgb(248, 188, 119);
+        box-shadow: 0px 0px 3px 2px var(--secondary-color);
+        transition: ease 0.2s;
     }
 }
