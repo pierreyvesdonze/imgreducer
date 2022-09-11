@@ -26,14 +26,26 @@ class MainController extends AbstractController
 
             $img = $form->get('image')->getData();
             $imgWidth = ($form->get('width')->getData());
-    
-            if ($img) {
+
+            $mimeType = $img->getmimeTypeType();
+            if (
+                $mimeType == 'image/jpeg' ||
+                $mimeType == 'image/jpg'  ||
+                $mimeType == 'image/png'  ||
+                $mimeType == 'image/gif'  ||
+                $mimeType == 'image/webp'
+            ) {
+              
                 $file = $imageManager->upload($img);
                 $imageManager->resize($file, $imgWidth);
 
                 $request->getSession()->set('file', $file);
-                 
+
                 return $this->file($file);
+            } else {
+                dd('pouet');
+                $this->addFlash('error', 'format de fichier invalide');
+                return $this->redirectToRoute('main');
             }
         }
 
@@ -48,8 +60,7 @@ class MainController extends AbstractController
     public function clearFolder(
         ImageManager $imageManager,
         Request $request
-        )
-    {
+    ) {
         $file = $request->getSession()->get('file');
         $imageManager->deleteImage($file);
 
