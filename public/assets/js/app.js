@@ -25,6 +25,7 @@ var app = {
                 {
                     url: Routing.generate('clear_folder'),
                     method: "POST",
+                    async: false
                 }).done(function (response) {
                     e.preventDefault();
                     if (null !== response) {
