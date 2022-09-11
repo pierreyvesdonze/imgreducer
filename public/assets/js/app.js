@@ -21,6 +21,8 @@ var app = {
     * Delete img uploaded in public folder
     */
     clearFolder: (e) => {
+        // Avoid multiple download
+        $('.dl-btn').css('display', 'none');
         let imgToDelete = $('.deleteImg').val()
         setTimeout(() => {
             $.ajax(
