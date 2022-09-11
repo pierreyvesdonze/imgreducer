@@ -10,6 +10,8 @@
 <div class="container-center">
     <h2>Votre fichier est prêt au téléchargement</h2>
 
+    <img src="{{ asset(img.pathName) }}" alt="img-to-download" id="img-to-dl">
+
     <form method="POST" action="" class="dl-img-form">
         <input type="hidden" class="deleteImg" value="{{ img.id }}" />
         <button class="custom-btn dl-btn">Télécharger</button>

@@ -20,7 +20,6 @@ var app = {
     */
     clearFolder: (e) => {
         let imgToDelete = $('.deleteImg').val()
-        console.log(imgToDelete);
         setTimeout(() => {
             $.ajax(
                 {
@@ -29,7 +28,8 @@ var app = {
                 }).done(function (response) {
                     e.preventDefault();
                     if (null !== response) {
-                        console.log('Cool ça marche');
+                        console.log('Fichier téléchargé');
+                        app.replaceDlLink
                     } else {
                         console.log('error');
                     }
@@ -56,6 +56,13 @@ var app = {
         $('.modal').addClass('hidden').removeClass('visible');
         $('.container-center').addClass('visible').removeClass('hidden');
     },
+
+    /**
+    * Replace download button width link
+    */
+    replaceDlLink: () => {
+
+    }
 }
 
 document.addEventListener('DOMContentLoaded', app.init)

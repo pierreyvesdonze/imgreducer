@@ -155,4 +155,13 @@ MODALS
 .close-btn {
   color: var(--secondary-color);
   cursor: pointer;
+}
+
+/*
+ ***************************
+IMG
+ ***************************
+ */
+#img-to-dl {
+  width: 250px;
 }/*# sourceMappingURL=style.css.map */
