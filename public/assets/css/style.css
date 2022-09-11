@@ -134,6 +134,7 @@ MODALS
   background: #111;
   padding: 0 2em;
   border-radius: 120px;
+  border: solid 1px var(--secondary-color);
 }
 .modal-info p {
   line-height: 2em;
@@ -146,12 +147,31 @@ MODALS
 
 .visible {
   visibility: visible;
+  -webkit-animation: modalAnim 0.3s ease-in;
+          animation: modalAnim 0.3s ease-in;
 }
 
 .hidden {
   visibility: hidden;
 }
 
+@-webkit-keyframes modalAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .close-btn {
   color: var(--secondary-color);
   cursor: pointer;

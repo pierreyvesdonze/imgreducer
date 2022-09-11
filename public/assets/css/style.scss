@@ -135,6 +135,7 @@ MODALS
     background: #111;
     padding: 0 2em;
     border-radius: 120px;
+    border: solid 1px var(--secondary-color);
     p {
         line-height: 2em;
         padding: 1.7em;
@@ -147,9 +148,15 @@ MODALS
 
 .visible {
     visibility: visible;
+    animation: modalAnim .3s ease-in;
 }
 .hidden {
     visibility: hidden;
+}
+
+@keyframes modalAnim {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 .close-btn {
