@@ -29,7 +29,7 @@ var app = {
                     e.preventDefault();
                     if (null !== response) {
                         console.log('Fichier téléchargé');
-                        app.replaceDlLink
+                        
                     } else {
                         console.log('error');
                     }
@@ -56,13 +56,6 @@ var app = {
         $('.modal').addClass('hidden').removeClass('visible');
         $('.container-center').addClass('visible').removeClass('hidden');
     },
-
-    /**
-    * Replace download button width link
-    */
-    replaceDlLink: () => {
-
-    }
 }
 
 document.addEventListener('DOMContentLoaded', app.init)

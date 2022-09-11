@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
     {% block metadescription %}{% endblock %}
+    <meta name="google-site-verification" content="Wug1WNXTFOb4DLNL5JstVtp3r1nRBv47FCgGvH8tVFQ" />
 
     <title>{% block title %}IMG Reducer{% endblock %}</title>
 
@@ -45,7 +46,7 @@
     {% block javascripts %}
     <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
         integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script src="{{ asset('assets/js/app.js') }}" defer></script>
