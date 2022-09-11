@@ -19,19 +19,17 @@ var app = {
     * Delete img uploaded in public folder
     */
     clearFolder: (e) => {
-        $('.dl-btn').css('display', 'none');
+        let imgToDelete = $('.deleteImg').val()
+        console.log(imgToDelete);
         setTimeout(() => {
             $.ajax(
                 {
-                    url: Routing.generate('clear_folder'),
-                    method: "POST",
-                    async: false
+                    url: Routing.generate('clear_img', {'fileId': imgToDelete}),
+                    method: "POST"
                 }).done(function (response) {
                     e.preventDefault();
                     if (null !== response) {
-
-                        // Handle redownload file
-                        app.reload();
+                        console.log('Cool ça marche');
                     } else {
                         console.log('error');
                     }
@@ -41,13 +39,6 @@ var app = {
                     console.log(error);
                 });
         }, "2000")
-    },
-
-    /**
-    * Doing F5, clearing inputs, avoid double up/downloading
-    */
-    reload: () => {
-        location.reload()
     },
 
     /**

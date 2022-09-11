@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Redimension d'image{% endblock %}
+
+{% block body %}
+<a href="{{ path('main') }}">
+    <h1>H O M E</h1>
+</a>
+
+<div class="container-center">
+    <h2>Votre fichier est prêt au téléchargement</h2>
+
+    <form method="POST" action="" class="dl-img-form">
+        <input type="hidden" class="deleteImg" value="{{ img.id }}" />
+        <button class="custom-btn dl-btn">Télécharger</button>
+    </form>
+</div>
+
+{% endblock %}

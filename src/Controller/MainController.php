@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
-use App\Form\Type\ImageUploadType;
+use App\Entity\Image;
+use App\Form\ImageUploadType;
+use App\Repository\ImageRepository;
 use App\Service\ImageManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,6 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
+    public function __construct(private EntityManagerInterface $em)
+    {
+    }
+
     /**
      * @Route("/", name="main")
      */
@@ -27,6 +34,7 @@ class MainController extends AbstractController
             $img = $form->get('image')->getData();
             $imgWidth = ($form->get('width')->getData());
 
+            // Check Mime Type
             $mimeType = $img->getMimeType();
             if (
                 $mimeType == 'image/jpeg' ||
@@ -35,13 +43,21 @@ class MainController extends AbstractController
                 $mimeType == 'image/gif'  ||
                 $mimeType == 'image/webp'
             ) {
-              
+
+                // Upload & resize file
                 $file = $imageManager->upload($img);
                 $imageManager->resize($file, $imgWidth);
 
-                $request->getSession()->set('file', $file);
+                //$request->getSession()->set('file', $file);
+                //Create and store Entity
+                $imgEntity = new Image;
+                $imgEntity->setPathName($file);
+                $this->em->persist($imgEntity);
+                $this->em->flush();
 
-                return $this->file($file);
+                return $this->redirectToRoute('download_img', [
+                    'imgId' => $imgEntity->getId()
+                ]);
             } else {
                 $this->addFlash('error', 'format de fichier invalide');
                 return $this->redirectToRoute('main');
@@ -54,15 +70,44 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/clear", name="clear_folder", methods={"GET", "POST"}, options={"expose"=true})
+     * @Route("/download/{imgId}", name="download_img", methods={"GET", "POST"})
      */
-    public function clearFolder(
-        ImageManager $imageManager,
+    public function downloadPage(
+        $imgId,
+        ImageRepository $imageRepository,
         Request $request
     ) {
-        $file = $request->getSession()->get('file');
-        $imageManager->deleteImage($file);
+        $img = $imageRepository->findOneBy([
+            'id' => $imgId
+        ]);
 
+        $file = $img->getPathName();
+
+        if ($request->isMethod('POST')) {
+            return $this->file($file);
+        }
+
+        return $this->render('main/download.html.twig', [
+            'img' => $img
+        ]);
+    }
+
+    /**
+     * @Route("/clear/{fileId}", name="clear_img", methods={"GET", "POST"}, options={"expose"=true})
+     */
+    public function clearImg(
+        $fileId,
+        ImageManager $imageManager,
+        ImageRepository $imageRepository
+    ) {
+        $file = $imageRepository->findOneBy([
+            'id' => $fileId
+        ]);
+
+        $imageManager->deleteImage($file->getPathName());
+        $this->em->remove($file);
+        $this->em->flush();
+        
         return new JsonResponse('ok');
     }
 }
