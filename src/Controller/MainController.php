@@ -27,7 +27,7 @@ class MainController extends AbstractController
             $img = $form->get('image')->getData();
             $imgWidth = ($form->get('width')->getData());
 
-            $mimeType = $img->getmimeTypeType();
+            $mimeType = $img->getMimeType();
             if (
                 $mimeType == 'image/jpeg' ||
                 $mimeType == 'image/jpg'  ||
