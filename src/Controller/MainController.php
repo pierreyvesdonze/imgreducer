@@ -43,7 +43,6 @@ class MainController extends AbstractController
 
                 return $this->file($file);
             } else {
-                dd('pouet');
                 $this->addFlash('error', 'format de fichier invalide');
                 return $this->redirectToRoute('main');
             }
