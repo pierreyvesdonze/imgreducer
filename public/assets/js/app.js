@@ -29,7 +29,7 @@ var app = {
                     e.preventDefault();
                     if (null !== response) {
                         console.log('Fichier téléchargé');
-                        
+                        window.location.replace('https://pydonze.fr/imgreducer/public/');
                     } else {
                         console.log('error');
                     }
