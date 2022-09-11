@@ -64,6 +64,7 @@ var app = {
      */
     loaderAnim: () => {
         $('.loading-anim').removeClass("hidden");
+        $('.container-center').css('opacity', .2);
     }
 }
 

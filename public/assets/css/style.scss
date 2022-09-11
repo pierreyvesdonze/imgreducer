@@ -86,6 +86,7 @@ MAIN
     border-left: 1px var(--secondary-color) solid;
     border-right: 1px var(--secondary-color) solid;
     border-radius: 124px;
+    transition: ease .3s;
     div {
         margin: 2em;
     }
