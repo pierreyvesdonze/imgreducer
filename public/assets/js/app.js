@@ -1,5 +1,8 @@
 var app = {
 
+    /**
+    * Listeners are ready when DOM is loaded
+    */
     init: function () {
 
         /**
@@ -12,6 +15,9 @@ var app = {
         $('.close-btn').on('click', app.closeModal);
     },
 
+    /**
+    * Delete img uploaded in public folder
+    */
     clearFolder: (e) => {
         $('.dl-btn').css('display', 'none');
         setTimeout(() => {
@@ -36,19 +42,28 @@ var app = {
         }, "2000")
     },
 
+    /**
+    * Doing F5, clearing inputs, avoid double up/downloading
+    */
     reload: () => {
         location.reload()
     },
 
+    /**
+    * Show info modal
+    */
     showInfo: () => {
         $('.modal-info').addClass('visible').removeClass('hidden');
         $('.container-center').addClass('hidden').removeClass('visible');
     },
-    
+
+    /**
+    * Close modals
+    */
     closeModal: () => {
         $('.modal').addClass('hidden').removeClass('visible');
         $('.container-center').addClass('visible').removeClass('hidden');
-    }
+    },
 }
 
 document.addEventListener('DOMContentLoaded', app.init)

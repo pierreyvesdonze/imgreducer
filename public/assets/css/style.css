@@ -112,7 +112,7 @@ MAIN
   outline: none;
   border: 1px var(--secondary-color) solid;
   background: transparent !important;
-  color: var(--text-color);
+  color: var(--secondary-color);
   padding: 0.5em;
 }
 

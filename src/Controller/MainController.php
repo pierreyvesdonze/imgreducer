@@ -12,7 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    #[Route('/', name: 'main_upload')]
+    /**
+     * @Route("/", name="main")
+     */
     public function index(
         Request $request,
         ImageManager $imageManager

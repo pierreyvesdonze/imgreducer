@@ -16,7 +16,7 @@ class ImageUploadType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('image', FileType::class, [
-            'label'    => 'Charger une image',
+            'label'    => 'Charger une image (.JPG, .JPEG, .PNG)',
             'multiple' => false,
             'mapped'   => false,
             'required' => true,
