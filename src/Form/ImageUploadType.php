@@ -49,7 +49,7 @@ class ImageUploadType extends AbstractType
             [
                 "label" => "Uploader",
                 'attr' => [
-                    'class' => 'custom-btn',
+                    'class' => 'custom-btn loader',
                 ],
             ]
         );

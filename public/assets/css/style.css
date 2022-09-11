@@ -4,7 +4,7 @@ MEDIA QUERIES
 ***********************************
 */
 :root {
-  --body-bg: radial-gradient(circle, rgba(27,27,27,1) 0%, rgba(8,8,8,1) 100%);
+  --body-bg: radial-gradient(circle, rgba(27, 27, 27, 1) 0%, rgba(8, 8, 8, 1) 100%);
   --text-color: white;
   --primary-color: #b1af3cd3;
   --secondary-color: rgb(255, 136, 0);
@@ -184,4 +184,49 @@ IMG
  */
 #img-to-dl {
   width: 250px;
+}
+
+/*
+ ***************************
+LOADING ANIMATION
+ ***************************
+ */
+.loading-anim {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.loading-anim:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  -webkit-animation: loading-anim 1.2s linear infinite;
+          animation: loading-anim 1.2s linear infinite;
+}
+
+@-webkit-keyframes loading-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=style.css.map */

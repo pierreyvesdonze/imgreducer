@@ -13,6 +13,8 @@ var app = {
         $('.dl-btn').on('click', app.clearFolder);
         $('.info').on('click', app.showInfo);
         $('.close-btn').on('click', app.closeModal);
+        $('.loader').on('click', app.loaderAnim);
+
     },
 
     /**
@@ -56,6 +58,13 @@ var app = {
         $('.modal').addClass('hidden').removeClass('visible');
         $('.container-center').addClass('visible').removeClass('hidden');
     },
+
+    /**
+     * Loader
+     */
+    loaderAnim: () => {
+        $('.loading-anim').removeClass("hidden");
+    }
 }
 
 document.addEventListener('DOMContentLoaded', app.init)

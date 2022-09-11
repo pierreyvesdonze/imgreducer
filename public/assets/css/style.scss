@@ -3,7 +3,7 @@
 :root {
     //var(--body-bg): url("../images/texture.webp") no-repeat fixed;
     //var(--body-bg)-small: url("../images/texture-small.webp") no-repeat fixed;
-    --body-bg: radial-gradient(circle, rgba(27,27,27,1) 0%, rgba(8,8,8,1) 100%);
+    --body-bg: radial-gradient(circle, rgba(27, 27, 27, 1) 0%, rgba(8, 8, 8, 1) 100%);
     --text-color: white;
     --primary-color: #b1af3cd3;
     --secondary-color: rgb(255, 136, 0);
@@ -28,8 +28,7 @@ h4,
 h5,
 h6,
 label,
-input[type=file] 
-.required,
+input[type="file"] .required,
 .input-textarea,
 .span-italic,
 .nav-link,
@@ -40,10 +39,10 @@ ul li,
 .alert {
     color: var(--text-color);
     text-shadow: 1px 1px 1px rgb(7, 7, 7);
-    letter-spacing: .2em;
+    letter-spacing: 0.2em;
 }
 
-input[type=number] {
+input[type="number"] {
     font-size: 1.6em;
 }
 
@@ -118,7 +117,7 @@ MAIN
     border: 1px var(--secondary-color) solid;
     background: transparent !important;
     color: var(--secondary-color);
-    padding: .5em;
+    padding: 0.5em;
 }
 
 /*
@@ -143,20 +142,24 @@ MODALS
 }
 
 .info {
-    margin-left: .5em;
+    margin-left: 0.5em;
 }
 
 .visible {
     visibility: visible;
-    animation: modalAnim .3s ease-in;
+    animation: modalAnim 0.3s ease-in;
 }
 .hidden {
     visibility: hidden;
 }
 
 @keyframes modalAnim {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .close-btn {
@@ -169,6 +172,39 @@ MODALS
 IMG
  ***************************
  */
- #img-to-dl {
+#img-to-dl {
     width: 250px;
- }
+}
+
+/*
+ ***************************
+LOADING ANIMATION
+ ***************************
+ */
+.loading-anim {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.loading-anim:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: loading-anim 1.2s linear infinite;
+}
+@keyframes loading-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
